@@ -289,3 +289,66 @@ ul a{
     font-size: 0.7rem;
     text-align: center;
 }
+
+/* RESPONSIVE DESIGN FOR SMALL SCREENS */
+@media (max-width: 768px) {
+    .navbar, .panel {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px;
+        height: auto;
+    }
+
+    .nav_search {
+        flex-direction: column;
+        width: 100%;
+        margin: 10px 0;
+    }
+
+    .search_input {
+        width: 100%;
+    }
+
+    .search_select, .search_icon {
+        width: 100%;
+        border-radius: 0;
+    }
+
+    .shop {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .box {
+        width: 90%;
+    }
+
+    .panel_ops {
+        width: 100%;
+        font-size: 1rem;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .foot_panel2 {
+        flex-direction: column;
+        align-items: center;
+        height: auto;
+    }
+
+    .foot_panel2 ul {
+        margin: 10px 0;
+        text-align: center;
+    }
+
+    .hero_msg {
+        width: 95%;
+        text-align: center;
+        font-size: 0.9rem;
+    }
+}
+
+.search_input {
+    width: 100%; /* instead of 600px */
+}
