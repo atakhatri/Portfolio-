@@ -10,11 +10,10 @@ body{
     background: #caf0f8a3
 }
 header {
-    /* background: #0077b6; */
     background-image: url(images/gradient\ bg.jpg);
     background-repeat: no-repeat;
     background-size: cover;
-    color: white;
+    color: rgb(0, 47, 157);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -29,6 +28,7 @@ header .logo img {
     width: 50px;
     margin-right: 20px;
     border-radius: 100%;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
 }
 nav a {
     color: rgb(0, 0, 0);
@@ -46,7 +46,7 @@ nav a:hover {
     padding: 100px 20px;
     background: #caf0f8;
 }
-.hero h2 {
+.hero h2{
     margin-bottom: 20px;
     font-size: 2.5rem;
 }
@@ -75,7 +75,7 @@ section {
     text-align: center;
 }
 
-.projects a{
+.projects a, #contact a{
     text-decoration: none;
     color: black;
 }
@@ -94,7 +94,7 @@ footer {
 }
 
 .tabs {
-  text-align: center;
+  text-align:center;
   padding: 40px 20px;
 }
 
@@ -115,53 +115,35 @@ footer {
   cursor: pointer;
   padding: 10px 20px;
   border-radius: 50px;
-  transition: color 0.3s;
-}
-
-.tab-container .slider {
-  position: absolute;
-  height: 100%;
-  width: 25%;
-  background: #0077b6;
-  border-radius: 50px;
   transition: 0.3s;
-  z-index: 0;
 }
 
-.tab-container input#tab-html:hover ~ .slider {
-  left: 0;
+.tab-container input#tab-insta:hover + label{
+    background-color: rgb(255, 0, 93);
+    color: rgb(255, 210, 210);
+}
+.tab-container input#tab-git:hover + label{
+    background-color: rgb(115, 0, 255);
+    color: rgb(202, 250, 255);
+}
+.tab-container input#tab-lkdn:hover + label{
+    background-color: rgb(0, 89, 255);
+    color: white;
+}
+.tab-container input#tab-fb:hover + label {
+    background-color: rgb(0, 65, 187);
+    color: white;
 }
 
-.tab-container input#tab-css:hover ~ .slider {
-  left: 25%;
-}
+/* .tab-container input#tab-html:checked + label,
+.tab-container input#tab-css:checked + label,
+.tab-container input#tab-js:checked + label,
+.tab-container input#tab-react:checked + label {
+  background-color: #000000;
+  color: rgb(0, 65, 187);
+} */
 
-.tab-container input#tab-js:hover ~ .slider {
-  left: 50%;
-}
-
-.tab-container input#tab-react:hover ~ .slider {
-  left: 75%;
-}
-
-.tab-container label {
-  z-index: 1;
-  position: relative;
-}
-
-.tab-container input#tab-html:hover + label,
-.tab-container input#tab-css:hover + label,
-.tab-container input#tab-js:hover + label,
-.tab-container input#tab-react:hover + label {
-  color: white;
-}
-
-.tab-container img{
-    height: 50px;
-    width: 50px;
-}
-
-@media (max-width: 768px) {
+@media (max-width: 700px) {
     nav {
         display: none;
     }
