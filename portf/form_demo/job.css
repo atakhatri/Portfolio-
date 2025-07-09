@@ -1,0 +1,106 @@
+html{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family:'Times New Roman', Times, serif;
+    background:linear-gradient(to left,rgb(42, 102, 42),rgb(166, 255, 166));
+    background-size: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 50px 0;
+}
+
+.container{
+    width: 900px;
+    margin: 0 0;
+}
+
+.apply_box{
+    width: 90%;
+    padding: 20px;
+    background-color: rgb(211, 230, 206);
+    margin: 0 auto;
+    margin-top: 50px;
+    box-shadow: 4px 3px 5px rgb(1,1,1,0.1);
+    border-radius: 10px;
+    text-align: center;
+}
+
+.form_container{
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+    gap: 20px;
+}
+
+.form_control{
+    display: flex;
+    flex-direction: column;
+    font-weight: bolder;
+}
+
+label{
+    font-size: 15px;
+    margin-bottom: 5px;
+}
+
+input,select,textarea{
+    padding: 6px 10px;
+    border: 1px transparent;
+    border-radius: 5px;
+    font-size: 15px;
+}
+
+.form_control input:focus,.form_control input:hover,textarea:focus,textarea:hover{
+    background-color: #b4ffd3cc;
+    outline-color: rgb(85, 130, 88);
+    transition: 0.3s;
+}
+
+.file{
+    font-weight: bolder;
+}
+
+.button_container{
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 20px;
+}
+
+button{
+    background-color: rgb(34, 70, 41);
+    border: transparent;
+    padding: 5px 10px;
+    color: white;
+    border-radius: 8px;
+    transition: 0.3 ease-in;
+}
+
+button:hover{
+    background-color: #6fa37e;
+    border: 2px solid rgb(34, 70, 41);
+    color: white;
+    transition: 0.3s ease-out;
+    cursor: pointer;
+}
+
+.textarea_control{
+    padding: 0;
+    margin-right: 20px;
+    grid-column: 1/span 2;
+    font-weight: bolder;
+}
+
+.textarea_control textarea{
+    width: 100%;
+}
+
+@media (max-width: 460px){
+    .textarea_control {
+        grid-column: 1/span 1 ;
+    }
+}
