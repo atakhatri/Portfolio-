@@ -224,11 +224,15 @@ footer{
     align-items: center;
     font-size: 1.2rem;
 }
+.foot_panel1 a{
+    text-decoration: none;
+    color: white;
+}
 
 .foot_panel2{
     background-color: #222f3d;
     color: white;
-    height: 500px;
+    height: 25%;
     display: flex;
     justify-content: space-evenly;
 }
@@ -291,15 +295,19 @@ ul a{
 }
 
 /* RESPONSIVE DESIGN FOR SMALL SCREENS */
-@media (max-width: 768px) {
-    .navbar, .panel {
+@media (max-width: 700px) {
+    .panel {
         flex-direction: column;
         align-items: flex-start;
         padding: 10px;
         height: auto;
     }
+    .panel_deals, .panel_all{
+        display: none;
+    }
 
     .nav_search {
+        display: none;
         flex-direction: column;
         width: 100%;
         margin: 10px 0;
@@ -338,7 +346,9 @@ ul a{
     }
 
     .foot_panel2 ul {
+        display: none;
         margin: 10px 0;
+        padding: 0;
         text-align: center;
     }
 
@@ -346,6 +356,50 @@ ul a{
         width: 95%;
         text-align: center;
         font-size: 0.9rem;
+    }
+
+    details {
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      margin-bottom: 5px;
+      padding: 5px;
+    }
+
+    summary {
+      font-weight: bold;
+      cursor: pointer;
+      list-style: none;
+    }
+
+    summary::-webkit-details-marker {
+      display: none;
+    }
+
+    details[open] summary::after {
+      content: " ▲";
+      font-size: 12px;
+    }
+
+    summary::after {
+      content: " ▼";
+      font-size: 12px;
+    }
+
+    details a{
+      display: block;
+      padding: 5px 0;
+      text-decoration: none;
+      color: #ffffff;
+    }
+
+    details a:hover {
+      text-decoration: underline;
+    }
+}
+
+@media (min-width : 700px) {
+    details{
+        display: none;
     }
 }
 
