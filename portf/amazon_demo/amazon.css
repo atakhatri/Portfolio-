@@ -322,6 +322,29 @@ ul a{
         border-radius: 0;
     }
 
+    .address_f{
+        margin: 0;
+    }
+
+    @keyframes slide-vertical {
+    0% {
+        background-position: center top;
+    }
+    100% {
+        background-position: center bottom;
+    }
+    }
+
+    .hero_section{
+        width: 100%;
+        height: 300px;
+        background-image: url('images/hero.png');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center top;
+        animation: slide-vertical 5s linear infinite alternate;
+    }
+
     .shop {
         flex-direction: column;
         align-items: center;
@@ -354,6 +377,7 @@ ul a{
 
     .hero_msg {
         width: 95%;
+        height: fit-content;
         text-align: center;
         font-size: 0.9rem;
     }
