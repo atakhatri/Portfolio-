@@ -5,6 +5,9 @@
     box-sizing: border-box;
     font-family: Arial, sans-serif;
 }
+html{
+    width: 100%;
+}
 
 /* main body */
 body{
@@ -35,7 +38,7 @@ header {
 
 /* main content first */
 .hero {
-    background-image: url(hero_bg.jpeg);
+    background-image: url(pics/p1.jpeg);
     background-repeat: no-repeat;
     background-size: cover;
     text-align: start;
@@ -46,30 +49,87 @@ header {
     margin-bottom: 20px;
     font-size: 2.5rem;
 }
-.hero p {
+.hero p{
     max-width: 600px;
     font-size: 1.1rem;
 }
 
 /* main content second */
 .templetes{
-    padding: 10px;
+    margin-bottom: 30px;
     display: flex;
     justify-content: space-evenly;
     flex-wrap: wrap;
+    gap: 20px 0px;
 }
-#templete{
+#templete,#about h2{
     font-size: 2rem;
     margin:20px 50px;
 }
 .box{
     margin: 10px;
-    padding: 5px;
+    padding-top: 20vh;
     width: 20%;
     height: 50vh;
-    background-color: rgb(66, 66, 66);
     border-radius: 10px;
+    transition: 0.3s ease;
+    text-align: center;
+    color: white;
+    font-weight: bolder;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
+#box1{
+    background-image: url(pics/p1.jpeg);
+    background-position: center;
+    background-size: cover;
+}
+#box2{
+    background-image: url(pics/p2.jpeg);
+    background-position: center;
+    background-size: cover;
+}
+#box3{
+    background-image: url(pics/p3.jpeg);
+    background-position: center;
+    background-size: cover; 
+}
+#box4{
+    background-image: url(pics/p4.jpeg);
+    background-position: center;
+    background-size: cover;
+}
+.box:hover{
+    transform: scale(1.2);
+}
+
+/* main content three */
+.projects div{
+    background: #a3a3a3;
+    padding: 20px;
+    margin:10px 50px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    border-radius: 10px;
+    text-align: center;
+    color: #000000;
+    transition: 0.3s;
+}
+.projects a, #contact a {
+    text-decoration: none;
+    color: black;
+}
+.projects div:hover,#contact a:hover,.projects a:hover{
+    background-color: #3e799c;
+    color: white;
+}
+#about{
+    margin-bottom: 50px;
+}
+#about p{
+    max-width: 600px;
+    font-size: 1.1rem;
+    margin: 0 50px;
+}
+
 
 /* external links */
 .tabs {
@@ -91,7 +151,7 @@ header {
     cursor: pointer;
     padding: 10px 20px;
     border-radius: 50px;
-    transition: 0.3s;
+    transition: 0.3s ease-in-out;
 }
 .tab-container input#tab-insta:hover + label{
     background-color: rgb(255, 0, 93);
@@ -149,6 +209,6 @@ footer {
     }
 
     footer{
-        width: 100%;
+        max-width:100%;
     }
 }
