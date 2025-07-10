@@ -232,6 +232,12 @@ footer {
     .projects div {
         margin: 10px 20px;
     }
+    .details{
+        flex-direction: column;
+    }
+    .tabs{
+        /* display: none; */
+    }
 }
 
 @media (max-width: 480px) {
