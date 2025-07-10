@@ -1,0 +1,128 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(to right, #777777, #cecece);
+  text-align: center;
+}
+h1 {
+  margin-top: 20px;
+  color: #2a2a2a;
+}
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+.loginbox {
+  background: white;
+  padding: 30px;
+  border-radius: 25px;
+  max-width: 500px;
+  width: 100%;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+.loginbox input[type="text"],.loginbox input[type="password"],.loginbox input[type="email"],.loginbox input[type="number"],.loginbox textarea,.loginbox select {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+}
+.loginbox button {
+  padding: 10px 20px;
+  margin: 10px 5px 0 0;
+  background-color: #7d7d7d;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.loginbox button:hover {
+  background-color: #545454;
+}
+.usrname{
+    margin-right: 21px;
+}
+div.usrname label{
+    margin-left: 21px;
+}
+.get_otp{
+    margin-bottom: 20px;
+    margin-right: 21px;
+}
+div.get_otp button{
+    margin-left: 21px;
+}
+.give_otp{
+    margin-bottom: 20px;
+    margin-right: 21px;
+}
+div.give_otp button{
+    margin-left: 21px;
+}
+.newpass{
+    margin-right: 21px;
+}
+div.newpass label{
+    margin-left: 21px;
+}
+div.newpass button{
+    margin-left: 21px;
+}
+.name {
+  display: flex;
+  gap: 5px;
+}
+.name input {
+  flex: 1;
+}
+.phone {
+  display: flex;
+  gap: 10px;
+}
+#sel{
+    width: 75px;
+}
+.address{
+    margin-right: 21px;
+}
+div.address label{
+    margin-left: 21px;
+}
+.email_pass{
+    margin-right: 21px;
+}
+div.email_pass label{
+    margin-left: 21px;
+}
+.signup_forgot, .remember {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.crc_gender{
+    display: flex;
+    gap: 5px;
+}
+a{
+    text-decoration: none;
+    color: white;
+}
+textarea {
+  resize: vertical;
+}
+@media (max-width: 600px) {
+  .name {
+    flex-direction: column;
+    margin-right: 21px;
+  }
+  .crc_gender {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  #phone {
+    flex-direction: column;
+  }
+}

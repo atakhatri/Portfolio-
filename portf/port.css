@@ -14,9 +14,6 @@ body{
 
 /* title bar */
 header {
-    background-image: url(images/gradient\ bg.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
     color: rgb(0, 47, 157);
     display: flex;
     justify-content: space-between;
@@ -41,7 +38,7 @@ header .logo img {
     font-weight: bold;
     transition: color 0.3s;
 }
-nav a:hover {
+.nav a:hover {
     color: #001ac2;
 }
 
