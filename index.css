@@ -176,6 +176,7 @@ header label:hover{
     margin-bottom: 20px;
 }
 .tab-container {
+    justify-content: space-evenly;
     display: inline-flex;
     flex-wrap: wrap;
     background: #a3a3a3;
