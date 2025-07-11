@@ -287,7 +287,7 @@ footer {
         margin-top: 10px;
         /*flex-direction: column;*/
         gap: 10px;
-        border-radius: 15px;
+        border-radius: 50px;
     }
     .templetes{
         margin: 0 20px;
