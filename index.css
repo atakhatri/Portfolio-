@@ -20,15 +20,35 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 2rem;
-    flex-wrap: wrap;
+    padding: 1rem 1rem;
+    /* flex-wrap: wrap; */
+}
+.title{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    text-align: end;
+    align-items: center;
+    gap: 50px;
 }
 header h1 {
     font-size: 1.8rem;
+    transition: 0.3s;
+}
+
+#port{
+    display: none;
+    transition: 0.3s;
+}
+header label:hover{
+    color: #056dff;
+    .nav{
+        display: none;
+    }
 }
 .nav {
     display: flex;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
     gap: 10px;
 }
 .nav a {
@@ -73,14 +93,15 @@ header h1 {
     margin: 20px 50px;
 }
 .box {
-    /* flex: 1 1 200px; */
-    min-width: 180px;
+    flex: 2 2 150px;
+    min-width: 200px;
     height: 150px;
     border-radius: 10px;
     transition: transform 0.3s ease;
     font-size: 1rem;
     text-align: center;
     color: white;
+    margin: 10px;
     font-weight: bolder;
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     display: flex;
@@ -141,9 +162,7 @@ header h1 {
     text-decoration: none;
     color: black;
 }
-.projects div:hover,
-#contact a:hover,
-.projects a:hover {
+.projects div:hover,#contact a:hover,.projects a:hover {
     background-color: #3e799c;
     color: white;
 }
@@ -205,8 +224,18 @@ footer {
     header {
         flex-direction: column;
     }
+    #port{
+        display: block;
+    }
     .nav{
+        text-align: end;
         margin: 10px 0;
+        margin-left: 75%;
+        display: none;
+    }
+    #nav:checked + .nav {
+        display: grid;
+        flex-direction: column;
     }
     .hero {
         padding: 60px 20px;
@@ -235,8 +264,10 @@ footer {
     .details{
         flex-direction: column;
     }
-    .tabs{
-        /* display: none; */
+    .templetes{
+        margin: 0 20px;
+        gap: 20px 0;
+        padding: 0;
     }
 }
 
@@ -244,7 +275,6 @@ footer {
     .box {
         height: 180px;
         width: 80%;
-        /* flex: 1 1 100%; */
     }
     .tab-container {
         width: 90%;
@@ -252,5 +282,10 @@ footer {
         flex-direction: column;
         gap: 10px;
         border-radius: 15px;
+    }
+    .templetes{
+        margin: 0 20px;
+        gap: 20px 0;
+        padding: 0;
     }
 }
