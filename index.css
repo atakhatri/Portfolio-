@@ -186,25 +186,29 @@ header label:hover{
 .tab-container input[type="radio"] {
     display: none;
 }
+.tab-container a{
+    text-decoration: none;
+    color: black;
+}
 .tab-container label {
     cursor: pointer;
     padding: 10px 20px;
     border-radius: 50px;
     transition: 0.3s ease-in-out;
 }
-.tab-container #tab-insta:hover {
+.tab-container #tab-insta:hover,#lk-insta:hover {
     background-color: #ff0550;
     color: white;
 }
-.tab-container #tab-git:hover {
+.tab-container #tab-git:hover,#lk-git:hover {
     background-color: #7605ff;
     color: white;
 }
-.tab-container #tab-lkdn:hover {
+.tab-container #tab-lkdn:hover,#lk-lkdn:hover {
     background-color: #056dff;
     color: white;
 }
-.tab-container #tab-fb:hover {
+.tab-container #tab-fb:hover,#lk-fb:hover {
     background-color: #0003b8;
     color: white;
 }
