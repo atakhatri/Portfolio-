@@ -39,6 +39,7 @@ header h1 {
 #port{
     display: none;
     transition: 0.3s;
+    font-size: 2rem;
 }
 header label:hover{
     color: #056dff;
@@ -282,10 +283,9 @@ footer {
         width: 80%;
     }
     .tab-container {
-        justify-content: space-evenly;
+        justify-content: space-between;
         width: 90%;
         margin-top: 10px;
-        /*flex-direction: column;*/
         gap: 10px;
         border-radius: 50px;
     }
