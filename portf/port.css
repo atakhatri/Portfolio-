@@ -199,9 +199,6 @@ h2{
         justify-content: end;
         align-items: end;
     }
-    .nav a{
-        /* width: 25%; */
-    }
     .tabs{
         display: block;
         padding: 20px 0;
