@@ -283,7 +283,7 @@ footer {
     .tab-container {
         width: 90%;
         margin-top: 10px;
-        flex-direction: column;
+        /*flex-direction: column;*/
         gap: 10px;
         border-radius: 15px;
     }
