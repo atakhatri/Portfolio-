@@ -282,6 +282,7 @@ footer {
         width: 80%;
     }
     .tab-container {
+        justify-content: space-evenly;
         width: 90%;
         margin-top: 10px;
         /*flex-direction: column;*/
