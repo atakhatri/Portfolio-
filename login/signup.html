@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sign Up</title>
+  <link rel="stylesheet" href="signup.css" />
+</head>
+<body>
+  <h1>Sign Up</h1>
+  <div class="box">
+    <label>Email</label>
+    <input type="email" id="email" placeholder="Email" />
+
+    <label>Password</label>
+    <input type="password" id="pass" placeholder="Password" />
+
+    <label>Confirm Password</label>
+    <input type="password" id="confirm" placeholder="Confirm Password" />
+
+    <button onclick="register()">Register</button>
+    <button onclick="window.location.href='login.html'">Back to Login</button>
+  </div>
+
+  <script>
+    function register() {
+      const email = document.getElementById("email").value;
+      const pass = document.getElementById("pass").value;
+      const confirm = document.getElementById("confirm").value;
+
+      if (pass !== confirm) {
+        alert("Passwords do not match!");
+        return;
+      }
+
+      alert("Registered successfully (demo)");
+      window.location.href = "login.html";
+    }
+  </script>
+</body>
+</html>

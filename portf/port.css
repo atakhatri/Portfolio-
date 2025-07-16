@@ -9,12 +9,12 @@
 
 /* main body */
 body{
-    background: #caf0f8a3
+    background: #005566
 }
 
 /* title bar */
 header {
-    color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -31,41 +31,42 @@ header .logo img {
     width: 3rem;
     margin-right: 20px;
     border-radius: 100%;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 2px 10px rgba(255, 255, 255, 0.5);
 }
 #port{
     display: none;
     transition: 0.3s;
 }
 .nav a {
-    color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
     text-decoration: none;
     margin-left: 15px;
     font-weight: bold;
     transition: color 0.3s;
 }
 .nav a:hover {
-    color: #001ac2;
+    color: #93cffd;
 }
 
 /* main first */
 .hero {
     text-align: center;
     padding: 100px 20px;
-    background-color: #ace1ff;
+    background-color: #176c7c;
     background-position: center;
     background-size: cover;
 }
 .hero h2{
     margin-bottom: 20px;
     font-size: 2.5rem;
-    color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
 }
 .hero p {
     max-width: 600px;
     margin: auto;
     font-size: 1.1rem;
-    color: rgb(0, 0, 0);
+    color: #56aabb;
+    font-weight: bold;
 }
 
 /* main second */
@@ -73,6 +74,10 @@ section {
     padding: 60px 20px;
     max-width: 1000px;
     margin: auto;
+}
+#about p {
+    color: #8fa7c6;
+    font-weight: lighter;
 }
 
 /* main third / fourth / fifth */
@@ -84,36 +89,35 @@ section {
 
 .skills div{
     /* background: linear-gradient(to right,rgb(119, 152, 238),lightblue);     */
-    background: rgb(160, 231, 255);
+    background: rgb(47, 60, 92);
     padding: 20px;
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     border-radius: 10px;
     text-align: center;
-    color: #000000;
+    color: white;
     transition: 0.3s;
 }
 
-.projects div{
-    background: rgb(119, 152, 238);
+.projects button{
+    width: 100%;
+    background: rgb(47, 60, 92);
     padding: 20px;
+    border: none;
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     border-radius: 10px;
     text-align: center;
-    color: #000000;
+    color: white;
     transition: 0.3s;
 }
 
-.skills div:hover,.projects div:hover{
+.skills div:hover,.projects button:hover{
     transform: scale(1.05);
-    background: linear-gradient(to right,rgb(160, 231, 255),rgb(119, 152, 238),rgb(160, 231, 255));
+    background: linear-gradient(to right,rgb(83, 97, 133),rgb(47, 60, 92),rgb(83, 97, 133));
 }
 
 .projects a, #contact a {
     text-decoration: none;
     color: black;
-}
-#contact{
-    background-color: rgb(160, 231, 255);
 }
 
 /* external links */
@@ -124,7 +128,8 @@ section {
 .tab-container {
     display: inline-flex;
     position: relative;
-    background: #fff;
+    background: #3f60a6;
+    color: #93cffd;
     border-radius: 50px;
     padding: 5px;
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
@@ -164,7 +169,7 @@ section {
 footer {
     text-align: center;
     padding: 20px;
-    background: #001989;
+    background: #3d3f48;
     color: white;
     font-weight: bolder;
 }
@@ -175,13 +180,13 @@ h2{
 }
 
 /* mobile view */
-@media (max-width: 700px) {
+@media (max-width: 775px) {
     header{
         padding: 20PX 10PX;
         display: block;
         text-align: center;
         width: 100%;
-        background-color: #bad9ff;
+        background-color: rgb(47, 60, 92);
     }
     header h1{
         margin-right: 50px;
