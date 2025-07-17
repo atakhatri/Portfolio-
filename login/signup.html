@@ -14,27 +14,64 @@
 
     <label>Password</label>
     <input type="password" id="pass" placeholder="Password" />
+    <meter max="4" id="strengthMeter"></meter>
+    <small id="strengthText"></small>
 
     <label>Confirm Password</label>
     <input type="password" id="confirm" placeholder="Confirm Password" />
+
+    <input type="checkbox" id="showSignupPass" /> <label for="showSignupPass" style="display:inline;">Show Passwords</label>
+
+    <p id="signupError" class="error"></p>
 
     <button onclick="register()">Register</button>
     <button onclick="window.location.href='login.html'">Back to Login</button>
   </div>
 
   <script>
+    const strengthMeter = document.getElementById("strengthMeter");
+    const strengthText = document.getElementById("strengthText");
+    const passwordInput = document.getElementById("pass");
+
+    passwordInput.addEventListener("input", () => {
+      const val = passwordInput.value;
+      let strength = 0;
+      if (val.length >= 8) strength++;
+      if (/[A-Z]/.test(val)) strength++;
+      if (/[0-9]/.test(val)) strength++;
+      if (/[^A-Za-z0-9]/.test(val)) strength++;
+
+      strengthMeter.value = strength;
+      const levels = ["Very Weak", "Weak", "Medium", "Strong", "Very Strong"];
+      strengthText.textContent = levels[strength];
+    });
+
+    document.getElementById("showSignupPass").addEventListener("change", function () {
+      const pass = document.getElementById("pass");
+      const confirm = document.getElementById("confirm");
+      const type = this.checked ? "text" : "password";
+      pass.type = confirm.type = type;
+    });
+
     function register() {
       const email = document.getElementById("email").value;
       const pass = document.getElementById("pass").value;
       const confirm = document.getElementById("confirm").value;
+      const error = document.getElementById("signupError");
 
-      if (pass !== confirm) {
-        alert("Passwords do not match!");
-        return;
+      if (!email || !pass || !confirm) {
+        error.textContent = "All fields are required.";
+      } else if (pass !== confirm) {
+        error.textContent = "Passwords do not match.";
+      } else if (strengthMeter.value < 3) {
+        error.textContent = "Password too weak.";
+      } else {
+        localStorage.setItem("userEmail", email);
+        localStorage.setItem("userPass", pass);
+        error.textContent = "";
+        alert("Registered successfully!");
+        window.location.href = "login.html";
       }
-
-      alert("Registered successfully (demo)");
-      window.location.href = "login.html";
     }
   </script>
 </body>

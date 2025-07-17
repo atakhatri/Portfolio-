@@ -14,20 +14,35 @@
 
     <label>Password</label>
     <input type="password" id="password" placeholder="Enter password" />
+    <input type="checkbox" id="showLoginPass" /> <label for="showLoginPass" style="display:inline;">Show Password</label>
+
+    <p id="loginError" class="error"></p>
 
     <button onclick="login()">Login</button>
     <button onclick="window.location.href='signup.html'">Sign Up</button>
   </div>
 
   <script>
+    document.getElementById("showLoginPass").addEventListener("change", function () {
+      const pw = document.getElementById("password");
+      pw.type = this.checked ? "text" : "password";
+    });
+
     function login() {
-      const user = document.getElementById("username").value;
-      const pass = document.getElementById("password").value;
-      if (user === "ata" && pass === "1234") {
-        // alert("Login successful!");
-        window.location.href = "../portf/port.html";
+      const user = document.getElementById("username").value.trim();
+      const pass = document.getElementById("password").value.trim();
+      const error = document.getElementById("loginError");
+
+      const savedUser = localStorage.getItem("userEmail");
+      const savedPass = localStorage.getItem("userPass");
+
+      if (user === "" || pass === "") {
+        error.textContent = "Please fill in all fields.";
+      } else if (user !== savedUser || pass !== savedPass) {
+        error.textContent = "Invalid username or password.";
       } else {
-        alert("Invalid credentials!");
+        error.textContent = "";
+        window.location.href = "../portf/port.html";
       }
     }
   </script>
