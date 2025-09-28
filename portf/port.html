@@ -1,116 +1,497 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Ata Khatri | Portfolio</title>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="port.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ata Khatri | Portfolio</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="port.css" />
+  </head>
+  <body>
+    <div class="preloader">
+      <div class="spinner"></div>
+    </div>
+    <aside class="stats-sidebar">
+      <h3>Dashboard</h3>
+      <div class="stat-widget">
+        <h4>Commit Activity</h4>
+        <div class="commit-graph">
+          <div class="bar" style="height: 60%"><span>Mon</span></div>
+          <div class="bar" style="height: 20%"><span>Tue</span></div>
+          <div class="bar" style="height: 80%"><span>Wed</span></div>
+          <div class="bar" style="height: 40%"><span>Thu</span></div>
+          <div class="bar" style="height: 90%"><span>Fri</span></div>
+          <div class="bar" style="height: 10%"><span>Sat</span></div>
+          <div class="bar" style="height: 30%"><span>Sun</span></div>
+        </div>
+      </div>
+      <div class="stat-widget">
+        <h4>Recent Projects</h4>
+        <ul class="recent-projects-list">
+          <li>FORM DEMO <span class="date">May 24, 2024</span></li>
+          <li>AMAZON DEMO <span class="date">May 20, 2024</span></li>
+        </ul>
+      </div>
+      <div class="stat-widget">
+        <h4>CS Facts Feed</h4>
+        <div class="facts-feed">
+          <p id="cs-fact"></p>
+        </div>
+      </div>
+    </aside>
+    <div class="main-wrapper">
+      <header>
+        <div class="logo">
+          <img src="../pics/p2.jpeg" alt="Logo" id="logoImage" />
+          <h1>ATA KHATRI</h1>
+        </div>
+        <nav class="desktop-nav">
+          <a href="#about">ABOUT</a>
+          <a href="#skills">SKILLS</a>
+          <a href="#projects">PROJECTS</a>
+          <a href="#contact">CONTACT</a>
+          <a href="#" id="logout-btn">LOGOUT</a>
+        </nav>
+        <a href="#" id="logout-btn-mobile" class="mobile-logout"
+          ><i class="fas fa-sign-out-alt"></i> LOGOUT</a
+        >
+      </header>
 
-<header>
-  <div class="logo">
-    <img src="logo.jpg" alt="Logo" id="logoImage" style="cursor: pointer;">
-    <input type="file" id="logoInput" accept="image/*" style="display: none;">
+      <div class="hero">
+        <h2>Hello There, I'm Ata Khatri</h2>
+        <p>A passionate developer exploring the world of code.</p>
+        <p>
+          This is my personal space to showcase my skills, projects, and
+          journey.
+        </p>
+      </div>
 
-    <h1>ATA KHATRI</h1>
-    <label id="port" for="nav"><i class="fas fa-bars"></i></label>
-  </div>
-  <input type="checkbox" id="nav" hidden />  
-  <div class="nav">
-    <a href="#about">ABOUT</a>
-    <a href="#skills">SKILLS</a>
-    <a href="#projects">PROJECTS</a>
-    <a href="#contact">CONTACT</a>
-    <a href="../index.html">LOGOUT</a>
-  </div>
-</header>
+      <section id="about">
+        <h2>ABOUT ME</h2>
+        <div class="about-container">
+          <div class="about-image">
+            <img src="../pics/p2.jpeg" alt="Ata Khatri" />
+          </div>
+          <div class="about-text">
+            <p>
+              I am a passionate BCA student with a love for coding and creative
+              problem-solving. I'm currently focused on honing my skills in web
+              development and exploring new technologies.
+            </p>
+            <p>
+              This portfolio is a living document of my journey, showcasing my
+              projects and the skills I've picked up along the way. I'm always
+              eager to learn and grow as a developer.
+            </p>
+          </div>
+        </div>
+      </section>
 
-<div class="hero">
-  <h2>Hello There, I'm Ata Khatri</h2>
-  <p>Welcome to my Portfolio, You might find it useful :)</p>
-  <p>Enjoy your time on my website !!</p>
-</div>
+      <section id="skills">
+        <h2>SKILLS</h2>
+        <div class="skills-grid">
+          <div class="skill-item">
+            <button class="skill-header">
+              <i class="fa-solid fa-file-code"></i> C/C++
+            </button>
+            <div class="skill-details">
+              <p>
+                Proficient in object-oriented programming, data structures, and
+                algorithms using C++.
+              </p>
+            </div>
+          </div>
+          <div class="skill-item">
+            <button class="skill-header">
+              <i class="fa-brands fa-python"></i> PYTHON
+            </button>
+            <div class="skill-details">
+              <p>
+                Experience with Python for scripting, backend logic, and data
+                manipulation.
+              </p>
+            </div>
+          </div>
+          <div class="skill-item">
+            <button class="skill-header">
+              <i class="fa-solid fa-code"></i> WEB DEV (very little)
+            </button>
+            <div class="skill-details">
+              <p>
+                Basic understanding of HTML, CSS, and JavaScript for building
+                static web pages and simple front-end interactions.
+              </p>
+            </div>
+          </div>
+          <div class="skill-item add-skill-btn" id="add-skill-btn">
+            <i class="fas fa-plus"></i>
+            <span>Add Skill</span>
+          </div>
+        </div>
+      </section>
 
-<section id="about">
-  <h2>!! ABOUT ME !!</h2>
-  <p>persuing BCA
-  <p>Still learing</p>
-  <p>Slow learner actually :)</p>
-  <p>if you're here then you know me.</p>
-</section>
+      <section id="projects">
+        <h2>PROJECTS</h2>
+        <div class="projects-grid">
+          <div class="project-item">
+            <div class="project-header">
+              <h3>FORM DEMO</h3>
+            </div>
+            <div class="project-details">
+              <p>
+                A responsive job application form built with HTML and advanced
+                CSS.
+              </p>
+              <a href="form_demo/job.html" target="_blank" class="project-link"
+                >View Project</a
+              >
+            </div>
+          </div>
+          <div class="project-item">
+            <div class="project-header">
+              <h3>AMAZON DEMO</h3>
+            </div>
+            <div class="project-details">
+              <p>
+                A static clone of the Amazon homepage, focusing on layout and
+                styling.
+              </p>
+              <a
+                href="amazon_demo/amazon.html"
+                target="_blank"
+                class="project-link"
+                >View Project</a
+              >
+            </div>
+          </div>
+          <div class="project-item add-project-btn" id="add-project-btn">
+            <i class="fas fa-plus"></i>
+            <span>Add Project</span>
+          </div>
+        </div>
+      </section>
 
-<section id="skills">
-  <h2>SKILLS</h2>
-  <div class="skills">
-    <div>C/C++</div>
-    <div>PYTHON</div>
-    <div>WEB DEV(very little)</div>
-    <div>-</div>
-    <div>-</div>
-    <div>-</div>
-  </div>
-</section>
+      <section id="contact">
+        <h2>CONTACT</h2>
+        <div class="contact-info">
+          <a href="mailto:atakhatri905@gmail.com"
+            ><button class="contact-button email-btn">
+              <i class="fa-solid fa-envelope"></i> Email Me
+            </button></a
+          >
+          <a
+            href="https://wa.me/919624632115"
+            target="_blank"
+            rel="noopener noreferrer"
+            ><button class="contact-button whatsapp-btn">
+              <i class="fa-brands fa-whatsapp"></i> WhatsApp Me
+            </button></a
+          >
+        </div>
+      </section>
 
-<section id="projects">
-  <h2>PROJECTS</h2>
-  <div class="projects">
-    <div><a href="form_demo/job.html" target="_blank"><button>FORM DEMO</button></a></div>
-    <div><a href="amazon_demo/amazon.html" target="_blank"><button>AMAZON DEMO</button></a></div>
-    <div><a href="#" target="_blank"><button>-</button></a></div>
-    <div><a href="#" target="_blank"><button>-</button></a></div>
-    <div><a href="#" target="_blank"><button>-</button></a></div>
-    <div><a href="#" target="_blank"><button>-</button></a></div>
-  </div>
-</section>
+      <section class="social-links">
+        <h2>OTHER LINKS</h2>
+        <div class="social-container">
+          <a
+            href="https://instagram.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Instagram"
+            ><i class="fa-brands fa-instagram"></i
+          ></a>
+          <a
+            href="https://github.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="GitHub"
+            ><i class="fa-brands fa-github"></i
+          ></a>
+          <a
+            href="https://linkedin.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn"
+            ><i class="fa-brands fa-linkedin"></i
+          ></a>
+          <a
+            href="https://facebook.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Facebook"
+            ><i class="fa-brands fa-facebook"></i
+          ></a>
+        </div>
+      </section>
 
-<section>
-  <h2>CONTACT</h2>
-  <div class="projects">
-      <a href="mailto:atakhatri905@gmail.com"><button><i class="fa-solid fa-envelope"></i> : atakhatri905@gmail.com</button></a>
-  </div>
-</section>
+      <footer>
+        <p>© 2025 Ata Khatri. All rights reserved.(GHANTA)</p>
+      </footer>
+    </div>
+    <a href="#" class="back-to-top-btn" aria-label="Back to top"
+      ><i class="fas fa-arrow-up"></i
+    ></a>
 
-<section class="tabs">
-  <h2>OTHER LINKS</h2>
-  <div class="tab-container">
-    <input type="radio" name="tab" id="tab-insta">
-    <label for="tab-insta"><i class="fa-brands fa-instagram"></i></label>
-        
-    <input type="radio" name="tab" id="tab-git">
-    <label for="tab-git"><i class="fa-brands fa-github"></i></label>
-        
-    <input type="radio" name="tab" id="tab-lkdn">
-    <label for="tab-lkdn"><i class="fa-brands fa-linkedin"></i></label>
-        
-    <input type="radio" name="tab" id="tab-fb">
-    <label for="tab-fb"><i class="fa-brands fa-facebook"></i></label>
-  </div>
-</section>
+    <script>
+      // --- THEME SWITCHER LOGIC ---
+      // This page inherits the theme from localStorage set by index.html
+      const currentTheme = localStorage.getItem("theme");
+      if (currentTheme) {
+        document.body.setAttribute("data-theme", currentTheme);
+      }
 
+      // This is a fallback in case the user lands here directly.
+      // It sets a default but doesn't show a toggle.
+      if (!document.body.getAttribute("data-theme")) {
+        document.body.setAttribute("data-theme", "light");
+      }
 
-<footer>
-    <p>© 2025 Ata Khatri. All rights reserved.(GHANTA)</p>
-</footer>
-</body>
-<script>
-  const logoImage = document.getElementById('logoImage');
-  const logoInput = document.getElementById('logoInput');
+      window.addEventListener("load", function () {
+        const preloader = document.querySelector(".preloader");
+        if (preloader) {
+          preloader.classList.add("hidden");
+        }
+      });
 
-  logoImage.addEventListener('click', () => {
-    logoInput.click();
-  });
+      document.addEventListener("DOMContentLoaded", function () {
+        // Security check: If no user is logged in, redirect to login page.
+        if (!localStorage.getItem("userEmail")) {
+          window.location.href = "../login/login.html";
+        }
 
-  logoInput.addEventListener('change', function(e) {
-    const file = e.target.files[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onload = function(event) {
-        logoImage.src = event.target.result;
-      };
-      reader.readAsDataURL(file);
-    }
-  });
-</script>
+        const logoutButton = document.getElementById("logout-btn");
+        const mobileLogoutButton = document.getElementById("logout-btn-mobile");
+
+        const performLogout = (e) => {
+          e.preventDefault();
+
+          // Clear user session data from localStorage
+          localStorage.removeItem("userEmail");
+          localStorage.removeItem("userPass");
+
+          // Redirect to the home page
+          window.location.href = "../index.html";
+        };
+
+        logoutButton.addEventListener("click", performLogout);
+
+        mobileLogoutButton.addEventListener("click", performLogout);
+
+        const mainWrapper = document.querySelector(".main-wrapper");
+        // Stretch on scroll-up effect
+        let isDragging = false;
+        let startY = 0;
+
+        const handleDragStart = (y) => {
+          if (window.scrollY === 0) {
+            isDragging = true;
+            startY = y;
+            mainWrapper.style.transition = "none"; // Disable transition while dragging
+          }
+        };
+
+        const handleDragMove = (y) => {
+          if (isDragging) {
+            const pullDistance = y - startY;
+            if (pullDistance > 0) {
+              // Apply a resistance to the pull
+              const stretch = Math.min(pullDistance * 0.3, 150);
+              mainWrapper.style.transform = `translateY(${stretch}px)`;
+            }
+          }
+        };
+
+        const handleDragEnd = () => {
+          if (isDragging) {
+            isDragging = false;
+            mainWrapper.style.transition = "transform 0.3s ease-out";
+            mainWrapper.style.transform = "translateY(0)";
+          }
+        };
+
+        window.addEventListener("mousedown", (e) => handleDragStart(e.clientY));
+        window.addEventListener("mousemove", (e) => handleDragMove(e.clientY));
+        window.addEventListener("mouseup", handleDragEnd);
+        window.addEventListener("touchstart", (e) =>
+          handleDragStart(e.touches[0].clientY)
+        );
+        window.addEventListener("touchmove", (e) =>
+          handleDragMove(e.touches[0].clientY)
+        );
+        window.addEventListener("touchend", handleDragEnd);
+
+        // Animate sections on scroll
+        const observerOptions = {
+          root: null,
+          rootMargin: "0px",
+          threshold: 0.1, // Trigger when 10% of the section is visible
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+              observer.unobserve(entry.target); // Stop observing after it's visible
+            }
+          });
+        }, observerOptions);
+
+        // Animate all sections and the sidebar
+        const animatedElements = document.querySelectorAll(
+          "section, .stats-sidebar"
+        );
+        animatedElements.forEach((el) => {
+          observer.observe(el);
+        });
+
+        // Accordion for skills
+        const skillsGrid = document.querySelector(".skills-grid");
+        const addSkillBtn = document.getElementById("add-skill-btn");
+
+        const handleSkillClick = (e) => {
+          const targetItem = e.target.closest(".skill-item");
+
+          // If the 'add' button or non-skill item is clicked, do nothing
+          if (!targetItem || targetItem.id === "add-skill-btn") return;
+
+          // Find if another item is already active
+          const activeItem = document.querySelector(".skill-item.active");
+
+          // If there is an active item and it's not the one we just clicked, deactivate it
+          if (activeItem && activeItem !== targetItem) {
+            activeItem.classList.remove("active");
+          }
+
+          // Toggle the active state of the clicked item
+          targetItem.classList.toggle("active");
+        };
+
+        skillsGrid.addEventListener("click", handleSkillClick);
+
+        // Add new skill functionality
+        addSkillBtn.addEventListener("click", () => {
+          const title = prompt("Enter the skill title (e.g., JavaScript):");
+          if (!title) return; // User cancelled
+
+          const description = prompt("Enter a brief description of the skill:");
+          if (!description) return; // User cancelled
+
+          // Create the new skill item element
+          const newSkill = document.createElement("div");
+          newSkill.className = "skill-item";
+          newSkill.innerHTML = `
+            <button class="skill-header">
+              <i class="fas fa-star"></i> ${title}
+            </button>
+            <div class="skill-details">
+              <p>${description}</p>
+            </div>
+          `;
+
+          // Insert the new skill before the 'add' button
+          skillsGrid.insertBefore(newSkill, addSkillBtn);
+        });
+
+        // Accordion for projects
+        const projectsGrid = document.querySelector(".projects-grid");
+        const addProjectBtn = document.getElementById("add-project-btn");
+
+        const handleProjectClick = (e) => {
+          if (e.target.classList.contains("project-link")) {
+            return;
+          }
+
+          const targetItem = e.target.closest(".project-item");
+
+          if (!targetItem || targetItem.id === "add-project-btn") return;
+
+          const activeItem = document.querySelector(".project-item.active");
+
+          if (activeItem && activeItem !== targetItem) {
+            activeItem.classList.remove("active");
+          }
+
+          targetItem.classList.toggle("active");
+        };
+
+        projectsGrid.addEventListener("click", handleProjectClick);
+
+        // Add new project functionality
+        addProjectBtn.addEventListener("click", () => {
+          const title = prompt("Enter the project title:");
+          if (!title) return;
+
+          const description = prompt("Enter a brief project description:");
+          if (!description) return;
+
+          const link = prompt(
+            "Enter the link to the project (e.g., https://...):"
+          );
+          if (!link) return;
+
+          const newProject = document.createElement("div");
+          newProject.className = "project-item";
+          newProject.innerHTML = `
+            <div class="project-header"><h3>${title}</h3></div>
+            <div class="project-details">
+              <p>${description}</p>
+              <a href="${link}" target="_blank" class="project-link">View Project</a>
+            </div>`;
+
+          projectsGrid.insertBefore(newProject, addProjectBtn);
+        });
+
+        // Dynamic CS Facts Feed
+        const csFacts = [
+          'The first computer "bug" was a real moth stuck in a relay in 1947.',
+          "The term 'Wi-Fi' doesn't actually stand for anything. It was a marketing term created for branding.",
+          "The first 1GB hard drive was announced in 1980, weighed over 500 pounds, and cost $40,000.",
+          "The PNG image format was created as a free alternative to GIF after a patent dispute.",
+          "There are over 700 different programming languages.",
+          "The first computer mouse was made of wood.",
+          "An average person blinks 20 times a minute, but only 7 times a minute when using a computer.",
+          "The creator of the CAPTCHA system wanted to create something that computers couldn't solve but humans could easily do.",
+        ];
+        const factElement = document.getElementById("cs-fact");
+        let lastFactIndex = -1;
+
+        function changeFact() {
+          if (!factElement) return; // Guard clause if element doesn't exist
+          factElement.style.opacity = 0;
+
+          setTimeout(() => {
+            let newFactIndex;
+            do {
+              newFactIndex = Math.floor(Math.random() * csFacts.length);
+            } while (newFactIndex === lastFactIndex); // Ensure a new fact is chosen
+
+            lastFactIndex = newFactIndex;
+            factElement.textContent = csFacts[newFactIndex];
+            factElement.style.opacity = 1;
+          }, 500); // Wait for fade out to complete
+        }
+
+        changeFact(); // Initial fact
+        setInterval(changeFact, 10000); // Change fact every 10 seconds
+
+        // Back to Top button
+        const backToTopButton = document.querySelector(".back-to-top-btn");
+
+        window.addEventListener("scroll", () => {
+          if (window.scrollY > 300) {
+            // Show button after 300px of scroll
+            backToTopButton.classList.add("visible");
+          } else {
+            backToTopButton.classList.remove("visible");
+          }
+        });
+      });
+    </script>
+  </body>
 </html>

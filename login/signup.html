@@ -1,78 +1,140 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Sign Up</title>
-  <link rel="stylesheet" href="signup.css" />
-</head>
-<body>
-  <h1>Sign Up</h1>
-  <div class="box">
-    <label>Email</label>
-    <input type="email" id="email" placeholder="Email" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="signup.css" />
+  </head>
+  <body>
+    <h1>Sign Up</h1>
+    <div class="box">
+      <form id="signupForm" novalidate>
+        <label for="email">Email</label>
+        <input
+          type="email"
+          id="email"
+          placeholder="Email"
+          required
+          autocomplete="email"
+        />
 
-    <label>Password</label>
-    <input type="password" id="pass" placeholder="Password" />
-    <meter max="4" id="strengthMeter"></meter>
-    <small id="strengthText"></small>
+        <label for="pass">Password</label>
+        <input
+          type="password"
+          id="pass"
+          placeholder="Password"
+          required
+          autocomplete="new-password"
+          aria-describedby="strengthText"
+        />
+        <meter max="4" id="strengthMeter"></meter>
+        <small id="strengthText"></small>
 
-    <label>Confirm Password</label>
-    <input type="password" id="confirm" placeholder="Confirm Password" />
+        <label for="confirm">Confirm Password</label>
+        <input
+          type="password"
+          id="confirm"
+          placeholder="Confirm Password"
+          required
+          autocomplete="new-password"
+        />
 
-    <input type="checkbox" id="showSignupPass" /> <label for="showSignupPass" style="display:inline;">Show Passwords</label>
+        <p id="signupError" class="error" aria-live="polite"></p>
 
-    <p id="signupError" class="error"></p>
+        <button type="submit">Register</button>
+        <button type="button" id="backToLogin">Back to Login</button>
+      </form>
+    </div>
 
-    <button onclick="register()">Register</button>
-    <button onclick="window.location.href='login.html'">Back to Login</button>
-  </div>
+    <div class="facts-marquee">
+      <div class="facts-track">
+        <!-- Facts will be inserted here by JavaScript -->
+      </div>
+    </div>
 
-  <script>
-    const strengthMeter = document.getElementById("strengthMeter");
-    const strengthText = document.getElementById("strengthText");
-    const passwordInput = document.getElementById("pass");
+    <script>
+      const signupForm = document.getElementById("signupForm");
+      const strengthMeter = document.getElementById("strengthMeter");
+      const strengthText = document.getElementById("strengthText");
+      const passwordInput = document.getElementById("pass");
+      const backToLoginBtn = document.getElementById("backToLogin");
 
-    passwordInput.addEventListener("input", () => {
-      const val = passwordInput.value;
-      let strength = 0;
-      if (val.length >= 8) strength++;
-      if (/[A-Z]/.test(val)) strength++;
-      if (/[0-9]/.test(val)) strength++;
-      if (/[^A-Za-z0-9]/.test(val)) strength++;
+      passwordInput.addEventListener("input", () => {
+        const val = passwordInput.value;
+        const strength = checkPasswordStrength(val);
+        strengthMeter.value = strength;
+        const levels = ["", "Weak", "Medium", "Strong", "Very Strong"];
+        strengthText.textContent = `Strength: ${
+          levels[strength] || "Very Weak"
+        }`;
+      });
 
-      strengthMeter.value = strength;
-      const levels = ["Very Weak", "Weak", "Medium", "Strong", "Very Strong"];
-      strengthText.textContent = levels[strength];
-    });
-
-    document.getElementById("showSignupPass").addEventListener("change", function () {
-      const pass = document.getElementById("pass");
-      const confirm = document.getElementById("confirm");
-      const type = this.checked ? "text" : "password";
-      pass.type = confirm.type = type;
-    });
-
-    function register() {
-      const email = document.getElementById("email").value;
-      const pass = document.getElementById("pass").value;
-      const confirm = document.getElementById("confirm").value;
-      const error = document.getElementById("signupError");
-
-      if (!email || !pass || !confirm) {
-        error.textContent = "All fields are required.";
-      } else if (pass !== confirm) {
-        error.textContent = "Passwords do not match.";
-      } else if (strengthMeter.value < 3) {
-        error.textContent = "Password too weak.";
-      } else {
-        localStorage.setItem("userEmail", email);
-        localStorage.setItem("userPass", pass);
-        error.textContent = "";
-        alert("Registered successfully!");
-        window.location.href = "login.html";
+      function checkPasswordStrength(password) {
+        let strength = 0;
+        if (password.length >= 8) strength++;
+        if (/[A-Z]/.test(password)) strength++;
+        if (/[0-9]/.test(password)) strength++;
+        if (/[^A-Za-z0-9]/.test(password)) strength++;
+        return strength;
       }
-    }
-  </script>
-</body>
+
+      signupForm.addEventListener("submit", (event) => {
+        event.preventDefault(); // Prevent default form submission
+        const email = document.getElementById("email").value;
+        const pass = document.getElementById("pass").value;
+        const confirm = document.getElementById("confirm").value;
+        const error = document.getElementById("signupError");
+
+        // Basic email validation regex
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        if (!email || !pass || !confirm) {
+          error.textContent = "All fields are required.";
+        } else if (!emailRegex.test(email)) {
+          error.textContent = "Please enter a valid email address.";
+        } else if (pass !== confirm) {
+          error.textContent = "Passwords do not match.";
+        } else if (checkPasswordStrength(pass) < 3) {
+          error.textContent =
+            "Password is too weak. It should be at least 8 characters and include uppercase, numbers, and symbols.";
+        } else {
+          // --- SECURITY WARNING ---
+          // Storing passwords in localStorage is highly insecure and should
+          // NEVER be done in a real application. This is for demonstration
+          // purposes only. In a real app, you would send the credentials
+          // over HTTPS to a secure server-side endpoint for hashing and storage.
+          localStorage.setItem("userEmail", email);
+          localStorage.setItem("userPass", pass);
+
+          error.textContent = "";
+          alert("Registered successfully!");
+          window.location.href = "login.html";
+        }
+      });
+
+      backToLoginBtn.addEventListener("click", () => {
+        window.location.href = "login.html";
+      });
+
+      // CS Facts Marquee
+      const csFacts = [
+        'The first computer "bug" was a real moth stuck in a relay in 1947.',
+        "The term 'Wi-Fi' doesn't actually stand for anything.",
+        "The first 1GB hard drive weighed over 500 pounds and cost $40,000.",
+        "The PNG image format was created as a free alternative to GIF.",
+        "There are over 700 different programming languages.",
+        "The first computer mouse was made of wood.",
+      ];
+
+      const track = document.querySelector(".facts-track");
+      // Duplicate facts to ensure seamless loop
+      const allFacts = [...csFacts, ...csFacts];
+      allFacts.forEach((fact) => {
+        const span = document.createElement("span");
+        span.textContent = fact;
+        track.appendChild(span);
+      });
+    </script>
+  </body>
 </html>

@@ -1,106 +1,372 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>PORTFOLIO</title>
-    <link rel="stylesheet" href="index.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-</head>
-<body>
-
-<header>
-  <div class="title">
-    <h1>PORTFOLIO</h1>
-    <label id="port" for="nav"><i class="fas fa-bars"></i></label>
-  </div>
-  <input type="checkbox" id="nav" hidden />
-  <div class="nav">
-    <a href="login/login.html" target="_self">LOGIN</a>
-    <a href="login/signup.html" target="_self">SIGNUP</a>
-    <a href="#about">ABOUT</a>
-    <a href="#contact">CONTACT</a>
-  </div>
-</header>
-
-<div class="hero">
-    <h2 id="home">Hello There, Mate !!!</h2>
-    <p>Get Started with your own Portfolio now ;)</p>
-    <p>customize it according to your choice</p>
-</div>
-
-<h2 id="templete">TEMPLETES</h2>
-<div class="templetes">
-    <div class="box" id="box1">
-      TEMPLETE1
+    <link rel="stylesheet" href="index.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <div class="preloader">
+      <div class="spinner"></div>
     </div>
-    <div class="box" id="box2">
-      TEMPLETE2
-    </div>
-    <div class="box" id="box3">
-      TEMPLETE3
-    </div>
-    <div class="box" id="box4">
-      TEMPLETE4
-    </div>
-    <div class="box" id="box1">
-      TEMPLETE5
-    </div>
-    <div class="box" id="box2">
-      TEMPLETE6
-    </div>
-    <div class="box" id="box3">
-      TEMPLETE7
-    </div>
-    <div class="box" id="box4">
-      TEMPLETE8
-    </div>
-    <div class="box" id="box2">
-      TEMPLETE9
-    </div>
-    <div class="box" id="box3">
-      TEMPLETE10
-    </div>
-</div>
-
-<section class="details">
-  <section id="about">
-    <h2>!! ABOUT ME !!</h2>
-    <p>persuing BCA</p>
-    <p>Still learing</p>
-    <p>Slow learner actually :)</p>
-    <p>and if you're here then you know me Well.</p>
-  </section>
-
-  <section>
-    <h2 id="templete">CONTACT</h2>
-    <div class="projects">
-      <div id="contact">
-        <p>You can reach me at : <a href="mailto:atakhatri905@gmail.com">atakhatri905@gmail.com</a></p>
+    <header>
+      <div class="title">
+        <h1>PORTFOLIO</h1>
       </div>
-    </div>
-  </section>
-</section>
+      <!-- Desktop Navigation -->
+      <nav class="desktop-nav">
+        <div class="search-container">
+          <i class="fas fa-search search-icon"></i>
+          <input
+            type="search"
+            id="template-search"
+            placeholder="Search Templates..."
+          />
+        </div>
+        <a href="login/login.html" target="_self">LOGIN</a>
+        <a href="login/signup.html" target="_self">SIGNUP</a>
+        <a href="#about">ABOUT</a>
+        <a href="#contact">CONTACT</a>
+        <div class="theme-switcher-container">
+          <label class="switch">
+            <input type="checkbox" id="theme-toggle" />
+            <span class="slider round">
+              <i class="fas fa-sun"></i>
+              <i class="fas fa-moon"></i>
+            </span>
+          </label>
+        </div>
+      </nav>
+      <!-- Mobile Menu Toggle -->
+      <button class="mobile-menu-toggle" aria-label="Open navigation menu">
+        <i class="fas fa-bars"></i>
+      </button>
+    </header>
 
-<section class="tabs">
-  <h2>OTHER LINKS</h2>
-  <div class="tab-container">
-    <input type="radio" name="tab" id="tab-insta">
-    <label for="tab-insta"><i class="fa-brands fa-instagram"></i></label>
-        
-    <input type="radio" name="tab" id="tab-git">
-    <label for="tab-git"><i class="fa-brands fa-github"></i></label>
-        
-    <input type="radio" name="tab" id="tab-lkdn">
-    <label for="tab-lkdn"><i class="fa-brands fa-linkedin"></i></label>
-        
-    <input type="radio" name="tab" id="tab-fb">
-    <label for="tab-fb"><i class="fa-brands fa-facebook"></i></label>
-  </div>
-</section>
+    <main>
+      <div id="search-results-container"></div>
+      <div id="main-content">
+        <div class="hero">
+          <h2 id="home">Hello There, Mate!</h2>
+          <p>Welcome to my collection of portfolio templates.</p>
+          <p>
+            Explore the designs below and find the perfect one to showcase your
+            skills and projects.
+          </p>
+        </div>
 
-<footer>
-    <p>© 2025 Ata Khatri. All rights reserved.(GHANTA)</p>
-</footer>
-</body>
+        <section id="templates">
+          <h2>TEMPLATES</h2>
+          <div class="templates-grid">
+            <a href="portf/port.html" target="_blank" class="box template-1">
+              <div>PORTFOLIO DEMO</div>
+            </a>
+            <a href="#" target="_blank" class="box template-2">
+              <div>TEMPLATE 2</div>
+            </a>
+            <a href="#" target="_blank" class="box template-3">
+              <div>TEMPLATE 3</div>
+            </a>
+            <a href="#" target="_blank" class="box template-4">
+              <div>TEMPLATE 4</div>
+            </a>
+            <a href="#" target="_blank" class="box template-5">
+              <div>TEMPLATE 5</div>
+            </a>
+            <a href="#" target="_blank" class="box template-6">
+              <div>TEMPLATE 6</div>
+            </a>
+          </div>
+        </section>
+
+        <div class="details">
+          <section id="about">
+            <h2>ABOUT</h2>
+            <p>Pursuing BCA</p>
+            <p>Still learning</p>
+            <p>Slow learner actually :)</p>
+            <p>And if you're here then you know me well.</p>
+          </section>
+
+          <section id="contact">
+            <h2>CONTACT</h2>
+            <div class="contact-info">
+              <a href="mailto:atakhatri905@gmail.com"
+                ><button class="contact-button email-btn">
+                  <i class="fa-solid fa-envelope"></i> Email Me
+                </button></a
+              >
+              <a
+                href="https://wa.me/919624632115"
+                target="_blank"
+                rel="noopener noreferrer"
+                ><button class="contact-button whatsapp-btn">
+                  <i class="fa-brands fa-whatsapp"></i> WhatsApp Me
+                </button></a
+              >
+            </div>
+          </section>
+        </div>
+
+        <section class="social-links">
+          <h2>OTHER LINKS</h2>
+          <div class="social-container">
+            <a
+              href="https://instagram.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram"
+              ><i class="fa-brands fa-instagram"></i
+            ></a>
+            <a
+              href="https://github.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="GitHub"
+              ><i class="fa-brands fa-github"></i
+            ></a>
+            <a
+              href="https://linkedin.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn"
+              ><i class="fa-brands fa-linkedin"></i
+            ></a>
+            <a
+              href="https://facebook.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Facebook"
+              ><i class="fa-brands fa-facebook"></i
+            ></a>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer>
+      <p>&copy; 2024 Ata Khatri. All rights reserved.</p>
+    </footer>
+    <!-- Slide-Out Navigation Panel for Mobile -->
+    <div class="nav-panel-overlay"></div>
+    <nav class="nav-panel">
+      <button class="nav-panel-close" aria-label="Close navigation menu">
+        <i class="fas fa-times"></i>
+      </button>
+      <div class="nav-panel-content">
+        <!-- Mobile search and theme switcher will be moved here by JS -->
+      </div>
+      <a href="login/login.html" target="_self">LOGIN</a>
+      <a href="login/signup.html" target="_self">SIGNUP</a>
+      <a href="#about">ABOUT</a>
+      <a href="#contact">CONTACT</a>
+    </nav>
+    <a href="#" class="back-to-top-btn" aria-label="Back to top"
+      ><i class="fas fa-arrow-up"></i
+    ></a>
+
+    <script>
+      // --- THEME SWITCHER LOGIC ---
+      const themeToggle = document.getElementById("theme-toggle");
+      const currentTheme = localStorage.getItem("theme");
+
+      // Apply the saved theme on page load
+      if (currentTheme) {
+        document.body.setAttribute("data-theme", currentTheme);
+        if (currentTheme === "dark") {
+          themeToggle.checked = true;
+        }
+      }
+
+      // Listen for toggle change
+      themeToggle.addEventListener("change", function () {
+        if (this.checked) {
+          document.body.setAttribute("data-theme", "dark");
+          localStorage.setItem("theme", "dark");
+        } else {
+          document.body.setAttribute("data-theme", "light");
+          localStorage.setItem("theme", "light");
+        }
+      });
+
+      window.addEventListener("load", function () {
+        const preloader = document.querySelector(".preloader");
+        preloader.classList.add("hidden");
+      });
+
+      document.addEventListener("DOMContentLoaded", function () {
+        const searchInput = document.getElementById("template-search");
+        const resultsContainer = document.getElementById(
+          "search-results-container"
+        );
+        const mainContent = document.getElementById("main-content");
+        const templates = document.querySelectorAll(".templates-grid .box");
+
+        // Move desktop controls between desktop and mobile nav
+        const desktopNav = document.querySelector('.desktop-nav');
+        const searchContainer = document.querySelector(".search-container");
+        const themeSwitcherContainer = document.querySelector(".theme-switcher-container");
+        const mobileNavContent = document.querySelector(".nav-panel-content");
+        const firstDesktopNavLink = desktopNav.querySelector('a');
+
+        const moveElements = () => {
+          if (window.innerWidth <= 750) {
+            // Move to mobile nav
+            mobileNavContent.prepend(themeSwitcherContainer);
+            mobileNavContent.prepend(searchContainer);
+          } else {
+            // Move to desktop nav
+            desktopNav.insertBefore(searchContainer, firstDesktopNavLink);
+            desktopNav.appendChild(themeSwitcherContainer);
+          }
+        };
+
+        moveElements();
+        window.addEventListener('resize', moveElements);
+
+        searchInput.addEventListener("input", function (e) {
+          const searchTerm = e.target.value.toLowerCase();
+          resultsContainer.innerHTML = ""; // Clear previous results
+          let resultsFound = false;
+
+          if (searchTerm.length > 0) {
+            document.body.classList.add("search-active");
+
+            templates.forEach(function (template) {
+              const templateText = template.textContent.toLowerCase();
+              if (templateText.includes(searchTerm)) {
+                const clonedTemplate = template.cloneNode(true);
+                resultsContainer.appendChild(clonedTemplate);
+                resultsFound = true;
+              }
+            });
+
+            if (!resultsFound) {
+              resultsContainer.innerHTML =
+                '<p class="no-results">No templates found. Try another search.</p>';
+              // Make it a single column for the message
+            }
+          } else {
+            document.body.classList.remove("search-active");
+          }
+        });
+
+        // Listen for the 'Escape' key to exit the search
+        document.addEventListener("keydown", function (e) {
+          if (
+            e.key === "Escape" &&
+            document.body.classList.contains("search-active")
+          ) {
+            searchInput.value = ""; // Clear the search input
+            document.body.classList.remove("search-active"); // Trigger the transition back
+          }
+        });
+
+        // Slide-out Menu Logic
+        const menuToggle = document.querySelector(".mobile-menu-toggle");
+        const navPanel = document.querySelector(".nav-panel");
+        const navOverlay = document.querySelector(".nav-panel-overlay");
+        const closeButton = document.querySelector(".nav-panel-close");
+
+        const closeMenu = () => {
+          navPanel.classList.remove("active");
+          navOverlay.classList.remove("active");
+          document.body.classList.remove("no-scroll");
+        };
+
+        menuToggle.addEventListener("click", () => {
+          navPanel.classList.add("active");
+          navOverlay.classList.add("active");
+          document.body.classList.add("no-scroll");
+        });
+
+        closeButton.addEventListener("click", closeMenu);
+        navOverlay.addEventListener("click", closeMenu);
+
+        // Stretch on scroll-up effect
+        let isDragging = false;
+        let startY = 0;
+
+        const handleDragStart = (y) => {
+          if (window.scrollY === 0) {
+            isDragging = true;
+            startY = y;
+            document.body.style.transition = "none"; // Disable transition while dragging
+          }
+        };
+
+        const handleDragMove = (y) => {
+          if (isDragging) {
+            const pullDistance = y - startY;
+            if (pullDistance > 0) {
+              // Apply a resistance to the pull
+              const stretch = Math.min(pullDistance * 0.3, 150);
+              document.body.style.transform = `translateY(${stretch}px)`;
+            }
+          }
+        };
+
+        const handleDragEnd = () => {
+          if (isDragging) {
+            isDragging = false;
+            document.body.style.transition = "transform 0.3s ease-out";
+            document.body.style.transform = "translateY(0)";
+          }
+        };
+
+        window.addEventListener("mousedown", (e) => handleDragStart(e.clientY));
+        window.addEventListener("mousemove", (e) => handleDragMove(e.clientY));
+        window.addEventListener("mouseup", handleDragEnd);
+        window.addEventListener("touchstart", (e) =>
+          handleDragStart(e.touches[0].clientY)
+        );
+        window.addEventListener("touchmove", (e) =>
+          handleDragMove(e.touches[0].clientY)
+        );
+        window.addEventListener("touchend", handleDragEnd);
+
+        // Animate sections on scroll
+        const observerOptions = {
+          root: null,
+          rootMargin: "0px",
+          threshold: 0.1, // Trigger when 10% of the section is visible
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+              observer.unobserve(entry.target); // Stop observing after it's visible
+            }
+          });
+        }, observerOptions);
+
+        document
+          .querySelectorAll("#main-content > section, #main-content > .details")
+          .forEach((el) => {
+            observer.observe(el);
+          });
+
+        // Back to Top button
+        const backToTopButton = document.querySelector(".back-to-top-btn");
+
+        window.addEventListener("scroll", () => {
+          if (window.scrollY > 300) {
+            // Show button after 300px of scroll
+            backToTopButton.classList.add("visible");
+          } else {
+            backToTopButton.classList.remove("visible");
+          }
+        });
+      });
+    </script>
+  </body>
 </html>

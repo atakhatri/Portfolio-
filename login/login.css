@@ -1,41 +1,71 @@
+/* General & Body */
 body {
   margin: 0;
   font-family: sans-serif;
-  background: linear-gradient(to right, #1d2b64, #f8cdda);
+  background-color: #f5ebe0; /* Light theme background */
   text-align: center;
   animation: fadeIn 1s ease-in;
 }
 
 h1 {
-  color: white;
+  color: #3d405b; /* Dark text */
   margin-top: 50px;
 }
 
+/* Form Container */
 .box {
-  background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(10px);
+  background: #e3d5ca; /* Secondary light background */
+  backdrop-filter: blur(12px);
   border-radius: 10px;
   padding: 30px;
-  width: 300px;
+  max-width: 320px;
+  width: 90%;
   margin: 50px auto;
   animation: slideIn 0.6s ease;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(61, 64, 91, 0.1);
 }
 
 label {
   display: block;
   margin-top: 15px;
-  color: white;
+  color: #3d405b; /* Dark text */
   text-align: left;
 }
 
-input[type="text"],
+input[type="email"],
+input[type="text"], /* Kept for username, but email is more common */
 input[type="password"] {
   width: 100%;
   height: 2rem;
-  border: none;
+  border: 1px solid #d6ccc2;
   margin-top: 5px;
-  border-radius: 5px;
+  border-radius: 10px;
   padding-left: 10px;
+  box-sizing: border-box;
+  transition: box-shadow 0.3s ease;
+  background-color: #f5ebe0;
+  color: #3d405b;
+}
+
+input[type="email"]:focus,
+input[type="text"]:focus,
+input[type="password"]:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(213, 189, 175, 0.7);
+}
+
+.show-password-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-top: 10px;
+  gap: 5px;
+}
+.show-password-container label {
+  margin-top: 0; /* Reset margin for this specific label */
+  color: #585b79; /* Secondary dark text */
+  font-size: 0.9rem;
 }
 
 button {
@@ -43,30 +73,96 @@ button {
   width: 100%;
   padding: 10px;
   border: none;
-  background-color: #4a69bd;
-  color: white;
+  background-color: #d5bdaf; /* Accent color */
+  color: #3d405b;
   font-weight: bold;
-  border-radius: 5px;
+  border-radius: 10px;
   cursor: pointer;
+  transition: 0.3s ease;
 }
 
-button:hover {
-  background-color: #1e3799;
+button[type="submit"]:hover {
+  background-color: #a99985; /* Darker accent on hover */
+}
+
+button[type="button"] {
+  background-color: transparent;
+  color: #585b79;
+  border: 2px solid #d5bdaf;
+}
+
+button[type="button"]:hover {
+  background-color: rgba(213, 189, 175, 0.2);
 }
 
 .error {
-  color: #ffcccc;
+  color: #9d0208;
+  background-color: rgba(214, 204, 194, 0.7);
+  border-radius: 5px;
+  padding: 8px;
   font-size: 0.9rem;
   margin-top: 10px;
+  min-height: 1.2em; /* Prevents layout shift when error appears */
+}
+
+.success {
+  color: #3d405b;
+  background-color: rgba(213, 189, 175, 0.5);
+  border: 1px solid #a99985;
+  border-radius: 5px;
+  padding: 8px;
+  font-size: 0.9rem;
+  margin-top: 10px;
+  min-height: 1.2em;
+}
+
+/* Facts Marquee */
+.facts-marquee {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #d5bdaf;
+  color: #3d405b;
+  padding: 10px 0;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.facts-track {
+  display: inline-block;
+  animation: marquee 60s linear infinite;
+}
+.facts-track span {
+  padding: 0 40px;
+  font-style: italic;
 }
 
 /* Animations */
 @keyframes fadeIn {
-  from {opacity: 0;}
-  to {opacity: 1;}
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(-50%);
+  }
 }
 
 @keyframes slideIn {
-  from {transform: translateY(20px); opacity: 0;}
-  to {transform: translateY(0); opacity: 1;}
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }

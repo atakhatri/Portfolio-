@@ -1,50 +1,137 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Login</title>
-  <link rel="stylesheet" href="login.css" />
-</head>
-<body>
-  <h1>Login to Portfolio</h1>
-  <div class="box">
-    <label>Username</label>
-    <input type="text" id="username" placeholder="Enter username" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Login</title>
+    <link rel="stylesheet" href="login.css" />
+  </head>
+  <body>
+    <h1>Login to Portfolio</h1>
+    <div class="box">
+      <form id="loginForm" novalidate>
+        <label for="username">Username</label>
+        <input
+          type="text"
+          id="username"
+          placeholder="Enter username"
+          required
+          autocomplete="username"
+        />
 
-    <label>Password</label>
-    <input type="password" id="password" placeholder="Enter password" />
-    <input type="checkbox" id="showLoginPass" /> <label for="showLoginPass" style="display:inline;">Show Password</label>
+        <label for="password">Password</label>
+        <input
+          type="password"
+          id="password"
+          placeholder="Enter password"
+          required
+          autocomplete="current-password"
+        />
+        <div class="show-password-container">
+          <input type="checkbox" id="showLoginPass" />
+          <label for="showLoginPass">Show Password</label>
+        </div>
 
-    <p id="loginError" class="error"></p>
+        <p id="loginError" class="error" aria-live="polite"></p>
 
-    <button onclick="login()">Login</button>
-    <button onclick="window.location.href='signup.html'">Sign Up</button>
-  </div>
+        <button type="submit">Login</button>
+        <button type="button" id="goToSignup">Sign Up</button>
+        <button type="button" id="goToHome">Back to Home</button>
+      </form>
+    </div>
 
-  <script>
-    document.getElementById("showLoginPass").addEventListener("change", function () {
-      const pw = document.getElementById("password");
-      pw.type = this.checked ? "text" : "password";
-    });
+    <div class="facts-marquee">
+      <div class="facts-track">
+        <!-- Facts will be inserted here by JavaScript -->
+      </div>
+    </div>
 
-    function login() {
-      const user = document.getElementById("username").value.trim();
-      const pass = document.getElementById("password").value.trim();
-      const error = document.getElementById("loginError");
+    <script>
+      const showPassCheckbox = document.getElementById("showLoginPass");
+      showPassCheckbox.addEventListener("change", function () {
+        const pw = document.getElementById("password");
+        pw.type = this.checked ? "text" : "password";
+      });
 
-      const savedUser = localStorage.getItem("userEmail");
-      const savedPass = localStorage.getItem("userPass");
+      function login() {
+        const user = document.getElementById("username").value.trim();
+        const pass = document.getElementById("password").value.trim();
+        const error = document.getElementById("loginError");
 
-      if (user === "" || pass === "") {
-        error.textContent = "Please fill in all fields.";
-      } else if (user !== savedUser || pass !== savedPass) {
-        error.textContent = "Invalid username or password.";
-      } else {
-        error.textContent = "";
-        window.location.href = "../portf/port.html";
+        // Admin credentials
+        const adminUser = "adm@adm.com";
+        const adminPass = "kaamkarbkl";
+
+        // Check for admin login first
+        if (user === adminUser && pass === adminPass) {
+          error.textContent = "Welcome, Admin! Redirecting...";
+          error.classList.remove("error");
+          error.classList.add("success");
+
+          setTimeout(() => {
+            // Set localStorage so the portfolio page allows access
+            localStorage.setItem("userEmail", user);
+            localStorage.setItem("userPass", pass);
+            window.location.href = "../portf/port.html";
+          }, 1500); // Wait 1.5 seconds before redirecting
+
+          return;
+        }
+
+        // --- SECURITY WARNING ---
+        // Retrieving a password from localStorage is highly insecure.
+        // This is for demonstration purposes only. In a real application,
+        // you would send credentials to a server for verification.
+        const savedUser = localStorage.getItem("userEmail");
+        const savedPass = localStorage.getItem("userPass");
+
+        if (user === "" || pass === "") {
+          error.textContent = "Please fill in all fields.";
+          error.className = "error";
+        } else if (user === savedUser && pass === savedPass) {
+          // Successful login for a regular user
+          error.textContent = "";
+          localStorage.setItem("userEmail", user); // Ensure session is set
+          window.location.href = "../portf/port.html";
+        } else {
+          error.textContent = "Invalid email or password.";
+          error.className = "error";
+        }
       }
-    }
-  </script>
-</body>
+
+      document
+        .getElementById("loginForm")
+        .addEventListener("submit", (event) => {
+          event.preventDefault();
+          login();
+        });
+
+      document.getElementById("goToSignup").addEventListener("click", () => {
+        window.location.href = "signup.html";
+      });
+
+      document.getElementById("goToHome").addEventListener("click", () => {
+        window.location.href = "../index.html";
+      });
+
+      // CS Facts Marquee
+      const csFacts = [
+        'The first computer "bug" was a real moth stuck in a relay in 1947.',
+        "The term 'Wi-Fi' doesn't actually stand for anything.",
+        "The first 1GB hard drive weighed over 500 pounds and cost $40,000.",
+        "The PNG image format was created as a free alternative to GIF.",
+        "There are over 700 different programming languages.",
+        "The first computer mouse was made of wood.",
+      ];
+
+      const track = document.querySelector(".facts-track");
+      // Duplicate facts to ensure seamless loop
+      const allFacts = [...csFacts, ...csFacts];
+      allFacts.forEach((fact) => {
+        const span = document.createElement("span");
+        span.textContent = fact;
+        track.appendChild(span);
+      });
+    </script>
+  </body>
 </html>
