@@ -49,6 +49,16 @@
       <button class="mobile-menu-toggle" aria-label="Open navigation menu">
         <i class="fas fa-bars"></i>
       </button>
+      <!-- Mobile Navigation -->
+      <nav class="mobile-nav">
+        <div class="nav-panel-content">
+          <!-- Mobile search and theme switcher will be moved here by JS -->
+        </div>
+        <a href="login/login.html" target="_self">LOGIN</a>
+        <a href="login/signup.html" target="_self">SIGNUP</a>
+        <a href="#about">ABOUT</a>
+        <a href="#contact">CONTACT</a>
+      </nav>
     </header>
 
     <main>
@@ -155,20 +165,6 @@
     <footer>
       <p>&copy; 2024 Ata Khatri. All rights reserved.</p>
     </footer>
-    <!-- Slide-Out Navigation Panel for Mobile -->
-    <div class="nav-panel-overlay"></div>
-    <nav class="nav-panel">
-      <button class="nav-panel-close" aria-label="Close navigation menu">
-        <i class="fas fa-times"></i>
-      </button>
-      <div class="nav-panel-content">
-        <!-- Mobile search and theme switcher will be moved here by JS -->
-      </div>
-      <a href="login/login.html" target="_self">LOGIN</a>
-      <a href="login/signup.html" target="_self">SIGNUP</a>
-      <a href="#about">ABOUT</a>
-      <a href="#contact">CONTACT</a>
-    </nav>
     <a href="#" class="back-to-top-btn" aria-label="Back to top"
       ><i class="fas fa-arrow-up"></i
     ></a>
@@ -221,7 +217,6 @@
           if (window.innerWidth <= 750) {
             // Move to mobile nav
             mobileNavContent.prepend(themeSwitcherContainer);
-            mobileNavContent.prepend(searchContainer);
           } else {
             // Move to desktop nav
             desktopNav.insertBefore(searchContainer, firstDesktopNavLink);
@@ -252,7 +247,9 @@
             if (!resultsFound) {
               resultsContainer.innerHTML =
                 '<p class="no-results">No templates found. Try another search.</p>';
-              // Make it a single column for the message
+              resultsContainer.classList.add('no-results-container');
+            } else {
+              resultsContainer.classList.remove('no-results-container');
             }
           } else {
             document.body.classList.remove("search-active");
@@ -270,26 +267,15 @@
           }
         });
 
-        // Slide-out Menu Logic
+        // Mobile Menu Logic
         const menuToggle = document.querySelector(".mobile-menu-toggle");
-        const navPanel = document.querySelector(".nav-panel");
-        const navOverlay = document.querySelector(".nav-panel-overlay");
-        const closeButton = document.querySelector(".nav-panel-close");
-
-        const closeMenu = () => {
-          navPanel.classList.remove("active");
-          navOverlay.classList.remove("active");
-          document.body.classList.remove("no-scroll");
-        };
+        const mobileNav = document.querySelector(".mobile-nav");
 
         menuToggle.addEventListener("click", () => {
-          navPanel.classList.add("active");
-          navOverlay.classList.add("active");
-          document.body.classList.add("no-scroll");
+          mobileNav.classList.toggle("active");
+          // Optional: toggle a class on the body to prevent scrolling
+          document.body.classList.toggle("no-scroll", mobileNav.classList.contains("active"));
         });
-
-        closeButton.addEventListener("click", closeMenu);
-        navOverlay.addEventListener("click", closeMenu);
 
         // Stretch on scroll-up effect
         let isDragging = false;

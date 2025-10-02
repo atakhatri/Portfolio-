@@ -51,16 +51,38 @@
           <img src="../pics/p2.jpeg" alt="Logo" id="logoImage" />
           <h1>ATA KHATRI</h1>
         </div>
+        <!-- Desktop Navigation -->
         <nav class="desktop-nav">
           <a href="#about">ABOUT</a>
           <a href="#skills">SKILLS</a>
           <a href="#projects">PROJECTS</a>
           <a href="#contact">CONTACT</a>
           <a href="#" id="logout-btn">LOGOUT</a>
+          <div class="theme-switcher-container">
+            <label class="switch">
+              <input type="checkbox" id="theme-toggle" />
+              <span class="slider round">
+                <i class="fas fa-sun"></i>
+                <i class="fas fa-moon"></i>
+              </span>
+            </label>
+          </div>
         </nav>
-        <a href="#" id="logout-btn-mobile" class="mobile-logout"
-          ><i class="fas fa-sign-out-alt"></i> LOGOUT</a
-        >
+        <!-- Mobile Menu Toggle -->
+        <button class="mobile-menu-toggle" aria-label="Open navigation menu">
+          <i class="fas fa-bars"></i>
+        </button>
+        <!-- Mobile Navigation -->
+        <nav class="mobile-nav">
+          <div class="nav-panel-content">
+            <!-- Mobile search and theme switcher will be moved here by JS -->
+          </div>
+          <a href="#about">ABOUT</a>
+          <a href="#skills">SKILLS</a>
+          <a href="#projects">PROJECTS</a>
+          <a href="#contact">CONTACT</a>
+          <a href="#" id="logout-btn-mobile">LOGOUT</a>
+        </nav>
       </header>
 
       <div class="hero">
@@ -240,23 +262,31 @@
 
     <script>
       // --- THEME SWITCHER LOGIC ---
-      // This page inherits the theme from localStorage set by index.html
+      const themeToggle = document.getElementById("theme-toggle");
       const currentTheme = localStorage.getItem("theme");
+
+      // Apply the saved theme on page load
       if (currentTheme) {
         document.body.setAttribute("data-theme", currentTheme);
+        if (currentTheme === "dark") {
+          themeToggle.checked = true;
+        }
       }
 
-      // This is a fallback in case the user lands here directly.
-      // It sets a default but doesn't show a toggle.
-      if (!document.body.getAttribute("data-theme")) {
-        document.body.setAttribute("data-theme", "light");
-      }
+      // Listen for toggle change
+      themeToggle.addEventListener("change", function () {
+        if (this.checked) {
+          document.body.setAttribute("data-theme", "dark");
+          localStorage.setItem("theme", "dark");
+        } else {
+          document.body.setAttribute("data-theme", "light");
+          localStorage.setItem("theme", "light");
+        }
+      });
 
       window.addEventListener("load", function () {
         const preloader = document.querySelector(".preloader");
-        if (preloader) {
-          preloader.classList.add("hidden");
-        }
+        preloader.classList.add("hidden");
       });
 
       document.addEventListener("DOMContentLoaded", function () {
@@ -280,8 +310,17 @@
         };
 
         logoutButton.addEventListener("click", performLogout);
-
         mobileLogoutButton.addEventListener("click", performLogout);
+
+        // Mobile Menu Logic
+        const menuToggle = document.querySelector(".mobile-menu-toggle");
+        const mobileNav = document.querySelector(".mobile-nav");
+
+        menuToggle.addEventListener("click", () => {
+          mobileNav.classList.toggle("active");
+          // Optional: toggle a class on the body to prevent scrolling
+          document.body.classList.toggle("no-scroll", mobileNav.classList.contains("active"));
+        });
 
         const mainWrapper = document.querySelector(".main-wrapper");
         // Stretch on scroll-up effect
